@@ -1,0 +1,31 @@
+html {
+  font-size: 16px;
+  font-family: "Cafe24Ssurround";
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* body {
+  background: url("./images/loginImages/bg-cloud.png") no-repeat center fixed;
+  background-size: cover;
+} */
+
+@font-face {
+  font-family: "BAUHS93";
+  src: url("./components/fonts/BAUHS93.ttf");
+}
+
+@font-face {
+  font-family: "BAUHS93R";
+  src: url("./components/fonts/Bauhaus\ 93\ Regular.ttf");
+}
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
