@@ -24,6 +24,7 @@ const SideCategory = () => {
 export default SideCategory;
 
 const SideCategoryWrap = styled.div`
+  z-index: 2;
   width: 11.25rem;
   height: calc(100vh - 7.9rem);
   background-color: #fff;

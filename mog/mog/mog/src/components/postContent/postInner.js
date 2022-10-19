@@ -1,8 +1,16 @@
+import { useCallback, useState } from "react";
 import styled from "styled-components";
 import PostSetting from "./postSetting";
 import PostSettingBtn from "./postSettingBtn";
 
 const PostInner = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openSettingHandler = useCallback(() => {
+    console.log(isOpen);
+    setIsOpen(!isOpen);
+  }, [isOpen]);
+
   return (
     <PostWrap>
       <PostTitleWrap>
@@ -15,8 +23,14 @@ const PostInner = () => {
             <PostDate>등록날짜</PostDate>
           </div>
         </PostTitleBox>
-        <PostSettingBtn />
-        {/* <PostSetting /> */}
+        <PostSettingBox>
+          <div onClick={openSettingHandler}>
+            <PostSettingBtn />
+          </div>
+          <div style={{ display: isOpen ? "block" : "none" }}>
+            <PostSetting />
+          </div>
+        </PostSettingBox>
       </PostTitleWrap>
 
       <PostContentWrap>내용</PostContentWrap>
@@ -60,6 +74,7 @@ const PostWriter = styled.div`
 
 const PostDate = styled.div`
   position: relative;
+  z-index: 1;
   color: #cfcfcf;
   &::before {
     position: absolute;
@@ -74,4 +89,9 @@ const PostDate = styled.div`
 
 const PostContentWrap = styled.div`
   padding: 1rem;
+`;
+
+const PostSettingBox = styled.div`
+  width: 125px;
+  height: auto;
 `;
