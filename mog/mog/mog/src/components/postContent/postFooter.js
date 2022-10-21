@@ -11,7 +11,7 @@ const PostFooter = () => {
   const likePost = useRef(null);
 
   const [replyOpen, setReplyOpen] = useState(true);
-  const [likeColor, setLikeColor] = useState("#000");
+  const [likeColor, setLikeColor] = useState("rgb(102,100,255)");
   const replyOpenHandler = useCallback(() => {
     console.log(replyOpen);
     setReplyOpen(!replyOpen);
@@ -24,15 +24,15 @@ const PostFooter = () => {
   }, [replyOpen]);
 
   const likePostHandler = useCallback(() => {
-    console.log(likeColor);
-    if (likeColor == "#000") {
-      setLikeColor("rgb(102,100,255)");
-      likePost.current.innerHTML = "♡";
-    } else {
+    likePost.current.style.color = likeColor;
+    if (likeColor == "rgb(102,100,255)") {
       setLikeColor("#000");
       likePost.current.innerHTML = "♥";
+    } else {
+      setLikeColor("rgb(102,100,255)");
+      likePost.current.innerHTML = "♡";
     }
-    likePost.current.style.color = likeColor;
+    console.log(likeColor);
   }, [likeColor]);
 
   return (
