@@ -27,9 +27,9 @@ const PostInner = () => {
           <div onClick={openSettingHandler}>
             <PostSettingBtn />
           </div>
-          <div style={{ display: isOpen ? "block" : "none" }}>
+          <settingOpenner style={{ display: isOpen ? "block" : "none" }}>
             <PostSetting />
-          </div>
+          </settingOpenner>
         </PostSettingBox>
       </PostTitleWrap>
 
@@ -94,4 +94,8 @@ const PostContentWrap = styled.div`
 const PostSettingBox = styled.div`
   width: 125px;
   height: auto;
+`;
+
+const settingOpenner = styled.div`
+  position: relative;
 `;

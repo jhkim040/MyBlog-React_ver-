@@ -4,11 +4,17 @@ import Share from "../../images/postImages/share.png";
 const PostSetting = () => {
   return (
     <PostSettingWrap>
-      <li>게시글 편집</li>
-      <li>게시글 삭제</li>
       <li>
-        공유하기
-        <ShareImg />
+        <a href="#">게시글 편집</a>
+      </li>
+      <li>
+        <a href="#">게시글 삭제</a>
+      </li>
+      <li>
+        <a href="#">
+          공유하기
+          <ShareImg />
+        </a>
       </li>
     </PostSettingWrap>
   );
@@ -21,6 +27,15 @@ const PostSettingWrap = styled.ul`
   list-style: none;
   padding: 10px;
   line-height: 32px;
+  position: absolute;
+  background-color: #fff;
+
+  & > li {
+    cursor: pointer;
+  }
+  & > li:hover {
+    opacity: 0.6;
+  }
 
   & > li:last-child {
     position: relative;
