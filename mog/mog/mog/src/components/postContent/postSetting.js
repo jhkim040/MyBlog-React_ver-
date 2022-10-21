@@ -4,17 +4,11 @@ import Share from "../../images/postImages/share.png";
 const PostSetting = () => {
   return (
     <PostSettingWrap>
+      <li>게시글 편집</li>
+      <li>게시글 삭제</li>
       <li>
-        <a href="#">게시글 편집</a>
-      </li>
-      <li>
-        <a href="#">게시글 삭제</a>
-      </li>
-      <li>
-        <a href="#">
-          공유하기
-          <ShareImg />
-        </a>
+        공유하기
+        <ShareImg />
       </li>
     </PostSettingWrap>
   );
@@ -22,11 +16,11 @@ const PostSetting = () => {
 export default PostSetting;
 
 const PostSettingWrap = styled.ul`
-  width: 100px;
-  border: 1px solid black;
+  width: 6.25rem;
+  border: 0.0625rem solid #000;
   list-style: none;
-  padding: 10px;
-  line-height: 32px;
+  padding: 0.625rem;
+  line-height: 2rem;
   position: absolute;
   background-color: #fff;
 
@@ -43,13 +37,13 @@ const PostSettingWrap = styled.ul`
 `;
 
 const ShareImg = styled.i`
-  width: 15px;
-  height: 15px;
+  width: 0.9375rem;
+  height: 0.9375rem;
   background: url(${Share}) no-repeat center;
   background-size: contain;
   display: inline-block;
   position: absolute;
-    top: 6.5px;
-    right: 16px;
+    top: 0.40625rem;
+    right: 1rem;
 }
 `;

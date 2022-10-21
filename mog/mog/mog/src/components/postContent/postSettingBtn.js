@@ -15,7 +15,7 @@ const SettingBtn = styled.div`
   height: 1.5rem;
   background: url(${dotsImg}) no-repeat center;
   background-size: cover;
-  margin-left: 100px;
+  margin-left: 6.25rem;
   cursor: pointer;
 
   &:hover {
