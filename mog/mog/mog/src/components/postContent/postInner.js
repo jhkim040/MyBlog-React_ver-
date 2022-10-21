@@ -113,7 +113,7 @@ const PostWriter = styled.div`
 
 const PostDate = styled.div`
   position: relative;
-  z-index: 1;
+  z-index: -1;
   color: #cfcfcf;
   &::before {
     position: absolute;

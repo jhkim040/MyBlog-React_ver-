@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { useInput } from "../common/customHook/useInput";
 
 const PostReply = () => {
+  const [reply, replyHandler] = useInput("");
+
   return (
     <ReplyFormWrap>
       <ReplyForm action="" method="post">
-        <textarea></textarea>
+        <textarea value={reply} onChange={replyHandler}></textarea>
       </ReplyForm>
       <ReplySubmitWrap>
         <ReplySubmit>
