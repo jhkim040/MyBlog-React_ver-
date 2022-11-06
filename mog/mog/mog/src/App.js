@@ -5,6 +5,7 @@ import MogLogin from "./pages/mogLogin";
 import ContextProvider from "./components/common/context/context";
 import MogMain from "./pages/mogMain";
 import MogPost from "./pages/mogPost";
+import MogUserInfo from "./pages/mogUserInfo";
 
 function App() {
   return (
@@ -14,8 +15,11 @@ function App() {
       </ContextProvider> */}
 
       {/* <MogLogin /> */}
-      <ContextProvider>
+      {/* <ContextProvider>
         <MogPost />
+      </ContextProvider> */}
+      <ContextProvider>
+        <MogUserInfo />
       </ContextProvider>
     </>
   );

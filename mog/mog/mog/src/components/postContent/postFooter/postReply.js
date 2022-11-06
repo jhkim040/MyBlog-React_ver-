@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useInput } from "../common/customHook/useInput";
+import { useInput } from "../../common/customHook/useInput";
 
 const PostReply = () => {
   const [reply, replyHandler] = useInput("");

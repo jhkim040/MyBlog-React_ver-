@@ -1,9 +1,9 @@
 import PostList from "./postList";
 import PostReply from "./postReply";
 import styled from "styled-components";
-import DownArrow from "../../images/postImages/arrow_down_icon.png";
-import UpArrow from "../../images/postImages/arrow_up_icon.png";
-import ShareImage from "../../images/postImages/share.png";
+import DownArrow from "../../../images/postImages/arrow_down_icon.png";
+import UpArrow from "../../../images/postImages/arrow_up_icon.png";
+import ShareImage from "../../../images/postImages/share.png";
 import { useCallback, useState, useRef } from "react";
 
 const PostFooter = () => {
@@ -52,7 +52,7 @@ const PostFooter = () => {
         </PostLove>
       </PostFooterMenu>
       <div style={{ display: replyOpen ? "block" : "none" }}>
-        <PostReply replyOpen={replyOpen} />
+        <PostReply />
       </div>
       <PostList />
     </>

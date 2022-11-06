@@ -26,4 +26,5 @@ const HeaderWrap = styled.div`
   left: 0;
   background-color: #fff;
   box-shadow: rgb(0 0 0 / 8%) 0px 0px 8px;
+  z-index: 100;
 `;

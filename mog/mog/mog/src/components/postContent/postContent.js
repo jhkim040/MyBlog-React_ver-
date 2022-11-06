@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import PostFooter from "./postFooter";
+import PostFooter from "./postFooter/postFooter";
 import PostInner from "./postInner";
 
 const PostContent = () => {
