@@ -6,20 +6,36 @@ import ContextProvider from "./components/common/context/context";
 import MogMain from "./pages/mogMain";
 import MogPost from "./pages/mogPost";
 import MogUserInfo from "./pages/mogUserInfo";
+import MogPublish from "./pages/mogPublish";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      {/* <ContextProvider>
+      <ContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MogLogin />} />
+            <Route path="/mogmain" element={<MogMain />} />
+            <Route path="/mogpost" element={<MogPost />} />
+            <Route path="/mogpublish" element={<MogPublish />} />
+            <Route path="/moguserinfo" element={<MogUserInfo />} />
+            {/* <ContextProvider>
         <MogMain />
-      </ContextProvider> */}
+      </ContextProvider>
+      <ContextProvider>
+        <MogPublish />
+      </ContextProvider>
 
-      {/* <MogLogin /> */}
-      {/* <ContextProvider>
+      <MogLogin />
+      <ContextProvider>
         <MogPost />
-      </ContextProvider> */}
+      </ContextProvider>
       <ContextProvider>
         <MogUserInfo />
+      </ContextProvider> */}
+          </Routes>
+        </BrowserRouter>
       </ContextProvider>
     </>
   );

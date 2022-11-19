@@ -12,8 +12,9 @@ const PostFooter = () => {
 
   const [replyOpen, setReplyOpen] = useState(true);
   const [likeColor, setLikeColor] = useState("rgb(102,100,255)");
+
   const replyOpenHandler = useCallback(() => {
-    console.log(replyOpen);
+    // console.log(replyOpen);
     setReplyOpen(!replyOpen);
 
     arrowImg.current.style.background = replyOpen
@@ -45,7 +46,6 @@ const PostFooter = () => {
         <PostLove>
           <ShareImg />
           <span onClick={likePostHandler}>
-            {" "}
             공감
             <span ref={likePost}>♡</span>
           </span>
