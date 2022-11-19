@@ -11,6 +11,8 @@ const PostFooter = () => {
   const likePost = useRef(null);
 
   const [replyOpen, setReplyOpen] = useState(true);
+  // likeColor : 클릭했을 때 적용될 색
+  // setLikeColor : 다음에 클릭했을 때 적용될 색 지정
   const [likeColor, setLikeColor] = useState("rgb(102,100,255)");
 
   const replyOpenHandler = useCallback(() => {
@@ -33,7 +35,7 @@ const PostFooter = () => {
       setLikeColor("rgb(102,100,255)");
       likePost.current.innerHTML = "♡";
     }
-    console.log(likeColor);
+    // console.log(likeColor);
   }, [likeColor]);
 
   return (
