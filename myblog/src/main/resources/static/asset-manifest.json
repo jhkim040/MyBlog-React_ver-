@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2388907f.css",
+    "main.js": "/static/js/main.d8d5e51f.js",
+    "static/js/787.da114e3c.chunk.js": "/static/js/787.da114e3c.chunk.js",
+    "static/media/MogLogo1.png": "/static/media/MogLogo1.35565daa7c8ce00b0e19.png",
+    "static/media/MogLogo2.png": "/static/media/MogLogo2.5b7aab5f1120c4d1461f.png",
+    "static/media/bg-cloud.png": "/static/media/bg-cloud.c8dcee1ebf729e715cf8.png",
+    "static/media/BAUHS93.ttf": "/static/media/BAUHS93.6d785e39c9cd2bb2f181.ttf",
+    "static/media/Bauhaus 93 Regular.ttf": "/static/media/Bauhaus 93 Regular.cd36af6251f40c1667c7.ttf",
+    "static/media/google-icon-file.png": "/static/media/google-icon-file.a0aa28d246c011c72817.png",
+    "static/media/naver-icon-file.png": "/static/media/naver-icon-file.b9a18eeb8242ce1bf137.png",
+    "static/media/share.png": "/static/media/share.e6522d88e31552c3d9fc.png",
+    "static/media/facebook-icon-file.png": "/static/media/facebook-icon-file.9c0f2d3569411280556b.png",
+    "index.html": "/index.html",
+    "main.2388907f.css.map": "/static/css/main.2388907f.css.map",
+    "main.d8d5e51f.js.map": "/static/js/main.d8d5e51f.js.map",
+    "787.da114e3c.chunk.js.map": "/static/js/787.da114e3c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2388907f.css",
+    "static/js/main.d8d5e51f.js"
+  ]
+}
