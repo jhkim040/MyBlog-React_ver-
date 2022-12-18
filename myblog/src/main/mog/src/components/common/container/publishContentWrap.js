@@ -15,13 +15,18 @@ const PublishContentWrap = (props) => {
   });
   // 데이터 조회
   useEffect(() => {
-    axios
-      .get(`/board/view/${id}`)
-      .then((res) => {
-        setBoard(res.data);
-      })
-      .catch((err) => err.toJSON());
+    // id 존재 --> 게시글 수정
+    // id 없음 --> 게시글 작성
+    if (id) {
+      axios
+        .get(`/board/view/${id}`)
+        .then((res) => {
+          setBoard(res.data);
+        })
+        .catch((err) => err.toJSON());
+    }
   }, [id]);
+
   return (
     <>
       <PublishContentBox>

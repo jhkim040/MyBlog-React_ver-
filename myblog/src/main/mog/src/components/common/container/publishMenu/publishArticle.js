@@ -11,10 +11,15 @@ const PublishArticle = (props) => {
   // 카테고리 리스트 --> 변경할 카테고리 선택
   const [categoryList, setCategoryList] = useState([]);
   const navigate = useNavigate();
-  // 게시글 수정
+
+  // 게시글 추가 or 수정
   const boardModfiy = () => {
     console.log(board);
-    axios.post(`/board/modify`, board);
+    if (board.id === 0) {
+      axios.post(`/board/insert`, board);
+    } else {
+      axios.post(`/board/update`, board);
+    }
     navigate(`/mogmain`);
   };
 
@@ -34,6 +39,7 @@ const PublishArticle = (props) => {
     // console.log(board);
     props.setBoard({ ...board, [e.target.name]: e.target.value });
   };
+
   return (
     <>
       <MenuTitle>
@@ -44,9 +50,9 @@ const PublishArticle = (props) => {
             onInputChange(e);
           }}
         >
-          {categoryList.map((category) => (
+          {categoryList.map((category, i) => (
             <>
-              <option>{category.name}</option>
+              <option>{categoryList[i].name}</option>
             </>
           ))}
         </select>

@@ -25,16 +25,20 @@ public class BoardController {
     }
     @PostMapping("/board/insert")
     public void boardInsert(@RequestBody Board board) {
-        boardService.write(board);
+        System.out.println(board);
+        Board boardTemp = new Board();
+        boardTemp.setCategory(board.getCategory());
+        boardTemp.setTitle(board.getTitle());
+        boardTemp.setContent(board.getContent());
+        boardService.write(boardTemp);
     }
-
     @GetMapping("/board/delete")
     public void boardDelete(Integer id) {
     boardService.boardDelete(id);
     }
 
-    @PostMapping("/board/modify")
-    public void boardModify(@RequestBody Board board) {
+    @PostMapping("/board/update")
+    public void boardUpdate(@RequestBody Board board) {
 
         Board boardTemp = boardService.boardView(board.getId());
         boardTemp.setTitle(board.getTitle());

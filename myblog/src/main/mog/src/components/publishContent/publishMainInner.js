@@ -21,7 +21,6 @@ const PublishMainInner = (props) => {
   // 수정할 게시글 데이터 조회
   useEffect(() => {
     titleRef.current.value = board.title;
-    // 카테고리는 수정 불가 (임시)
     // categoryRef.current.value = board.category;
     contentRef.current.value = board.content;
   }, [board.title, board.content]);
@@ -53,9 +52,6 @@ const PublishMainInner = (props) => {
                   name="category"
                   ref={categoryRef}
                   value={board.category}
-                  onChange={(e) => {
-                    onInputChange(e);
-                  }}
                 />
               </PublishSubTitle>
             </PublishTitleBox>
