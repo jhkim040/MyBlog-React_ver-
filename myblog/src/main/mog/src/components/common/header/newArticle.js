@@ -1,10 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const NewArticle = () => {
+  const navigate = useNavigate();
   return (
     <>
       <NewArticleWrap>
-        <NewArticleBtn type="button">새 글 쓰기</NewArticleBtn>
+        <NewArticleBtn
+          type="button"
+          onClick={() => {
+            navigate("/mogpublish");
+          }}
+        >
+          새 글 쓰기
+        </NewArticleBtn>
       </NewArticleWrap>
     </>
   );

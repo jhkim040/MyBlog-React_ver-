@@ -1,9 +1,18 @@
-import { useCallback, useState } from "react";
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import PostSetting from "./postSetting";
 import PostSettingBtn from "./postSettingBtn";
 
-const PostInner = () => {
+const PostInner = (props) => {
+  // props.id : 게시글 상세보기
+  const bid = props.id;
+  console.log(bid);
+  const [board, setBoard] = useState({
+    id: 0,
+    title: "",
+    content: "",
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   const openSettingHandler = useCallback(() => {
@@ -11,12 +20,23 @@ const PostInner = () => {
     setIsOpen(!isOpen);
   }, [isOpen]);
 
+  // 데이터 조회
+  useEffect(() => {
+    // 게시글 리스트 조회 (전체 불러오기)
+    axios
+      .get(`/board/view/${bid}`)
+      .then((res) => {
+        setBoard(res.data);
+        // console.log(res);
+      })
+      .catch((err) => err.toJSON());
+  }, [bid]);
   return (
     <PostWrap>
       <PostTitleWrap>
         <PostTitleBox>
-          <PostTitle>제목</PostTitle>
-          <PostSubTitle>부제목</PostSubTitle>
+          <PostTitle>{board.title}</PostTitle>
+          <PostSubTitle>{board.category}</PostSubTitle>
           <div>
             <PostWriter>작성자</PostWriter>
 
@@ -33,46 +53,7 @@ const PostInner = () => {
         </PostSettingBox>
       </PostTitleWrap>
 
-      <PostContentWrap>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit
-        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit
-        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </PostContentWrap>
+      <PostContentWrap>{board.content}</PostContentWrap>
     </PostWrap>
   );
 };

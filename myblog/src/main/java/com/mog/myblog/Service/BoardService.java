@@ -12,6 +12,10 @@ public class BoardService {
     @Autowired
     private BoardRepository boardRepository;
 
+    public Board boardView(Integer id){
+        return boardRepository.findById(id).get();
+    }
+
     public List<Board> boardList() {
         return boardRepository.findAll();
     }

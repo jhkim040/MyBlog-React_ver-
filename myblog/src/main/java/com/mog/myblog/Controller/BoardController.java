@@ -13,6 +13,11 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
+    @GetMapping("/board/view/{id}")
+    public Board boardView(@PathVariable Integer id) {
+        return boardService.boardView(id);
+    }
+
     @GetMapping("/board/list")
     public List<Board> boardList() {
         System.out.println("boardList 연결");

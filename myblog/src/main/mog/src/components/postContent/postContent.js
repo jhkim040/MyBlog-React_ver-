@@ -2,10 +2,11 @@ import styled from "styled-components";
 import PostFooter from "./postFooter/postFooter";
 import PostInner from "./postInner";
 
-const PostContent = () => {
+const PostContent = (props) => {
+  // props.id : 게시글 PK --> 상세보기
   return (
     <PostContentWrap>
-      <PostInner />
+      <PostInner id={props.id} />
       <PostFooter />
     </PostContentWrap>
   );

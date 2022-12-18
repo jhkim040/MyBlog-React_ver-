@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const SingleArticle = (props) => {
@@ -15,7 +16,8 @@ const SingleArticle = (props) => {
         filteredList.map((board) => (
           <>
             <SingleArticleInner key={board.id}>
-              <a href="#">{board.title}</a>
+              {/* 클릭 --> 게시글 상세 보기 */}
+              <Link to={`/mogpost/${board.id}`}>{board.title}</Link>
             </SingleArticleInner>
           </>
         ))}

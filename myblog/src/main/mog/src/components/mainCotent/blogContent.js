@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 // import { Post } from "../common/container/post/post";
 
@@ -22,10 +23,10 @@ const BlogContent = () => {
         <>
           <BlogContentWrap>
             <BlogContentCategory>
-              <a href="#">{board.category}</a>
+              <Link to={`/mogpost/${board.id}`}>{board.category}</Link>
             </BlogContentCategory>
             <BlogContentTitle>
-              <a href="#">{board.title}</a>
+              <Link to={`/mogpost/${board.id}`}>{board.title}</Link>
             </BlogContentTitle>
           </BlogContentWrap>
         </>
