@@ -27,4 +27,19 @@ public class BoardController {
     public void boardInsert(@RequestBody Board board) {
         boardService.write(board);
     }
+
+    @GetMapping("/board/delete")
+    public void boardDelete(Integer id) {
+    boardService.boardDelete(id);
+    }
+
+    @PostMapping("/board/modify")
+    public void boardModify(@RequestBody Board board) {
+
+        Board boardTemp = boardService.boardView(board.getId());
+        boardTemp.setTitle(board.getTitle());
+        boardTemp.setCategory(board.getCategory());
+        boardTemp.setContent(board.getContent());
+        boardService.write(boardTemp);
+    }
 }

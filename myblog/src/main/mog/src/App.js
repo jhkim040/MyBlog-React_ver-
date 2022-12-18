@@ -19,6 +19,7 @@ function App() {
             <Route path="/mogmain" element={<MogMain />} />
             <Route path="/mogpost/:id" element={<MogPost />} />
             <Route path="/mogpublish" element={<MogPublish />} />
+            <Route path="/mogmodify/:id" element={<MogPublish />} />
             <Route path="/moguserinfo" element={<MogUserInfo />} />
             {/* <ContextProvider>
         <MogMain />

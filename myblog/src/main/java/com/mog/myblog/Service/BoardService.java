@@ -23,4 +23,8 @@ public class BoardService {
     public void write(Board board) {
         boardRepository.save(board);
     }
+
+    public void boardDelete(Integer id) {
+        boardRepository.deleteById(id);
+    }
 }

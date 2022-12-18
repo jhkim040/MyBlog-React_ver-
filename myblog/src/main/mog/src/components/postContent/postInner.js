@@ -5,11 +5,12 @@ import PostSetting from "./postSetting";
 import PostSettingBtn from "./postSettingBtn";
 
 const PostInner = (props) => {
-  // props.id : 게시글 상세보기
-  const bid = props.id;
-  console.log(bid);
+  // props.id : 게시글 pk
+  const id = props.id;
+  // console.log(id);
   const [board, setBoard] = useState({
     id: 0,
+    category: "",
     title: "",
     content: "",
   });
@@ -22,15 +23,15 @@ const PostInner = (props) => {
 
   // 데이터 조회
   useEffect(() => {
-    // 게시글 리스트 조회 (전체 불러오기)
+    // 게시글 상세 조회
     axios
-      .get(`/board/view/${bid}`)
+      .get(`/board/view/${id}`)
       .then((res) => {
         setBoard(res.data);
         // console.log(res);
       })
       .catch((err) => err.toJSON());
-  }, [bid]);
+  }, [id]);
   return (
     <PostWrap>
       <PostTitleWrap>
@@ -48,7 +49,8 @@ const PostInner = (props) => {
             <PostSettingBtn />
           </div>
           <SettingOpenner style={{ display: isOpen ? "block" : "none" }}>
-            <PostSetting />
+            {/* 게시글 수정 or 삭제 */}
+            <PostSetting id={id} />
           </SettingOpenner>
         </PostSettingBox>
       </PostTitleWrap>

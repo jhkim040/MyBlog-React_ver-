@@ -1,11 +1,26 @@
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Share from "../../images/postImages/share.png";
 
-const PostSetting = () => {
+const PostSetting = (props) => {
+  const id = props.id; // 게시글 pk
+
+  const navigate = useNavigate(); // 페이지 이동
+  // 게시글 삭제
+  const boardDelete = () => {
+    axios.get(`/board/delete?id=${id}`);
+    navigate("/mogmain");
+  };
+  // 게시글 수정
+  const boardModify = () => {
+    navigate(`/mogmodify/${id}`);
+  };
+
   return (
     <PostSettingWrap>
-      <li>게시글 편집</li>
-      <li>게시글 삭제</li>
+      <li onClick={boardModify}>게시글 편집</li>
+      <li onClick={boardDelete}>게시글 삭제</li>
       <li>
         공유하기
         <ShareImg />

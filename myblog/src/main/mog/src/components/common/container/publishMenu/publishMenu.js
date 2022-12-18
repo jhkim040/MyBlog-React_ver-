@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { Context } from "../../context/context";
 import PublishArticle from "./publishArticle";
 
-const PublishMenu = () => {
+const PublishMenu = (props) => {
   const { state, dispatch } = useContext(Context);
   return (
     <PublishMenuBox style={{ display: state ? "none" : "block" }}>
       {/* <SidebarTitle>PublishMenu</SidebarTitle> */}
       {/* <hr /> */}
       <PublishMenuInner>
-        <PublishArticle />
+        <PublishArticle board={props.board} setBoard={props.setBoard} />
       </PublishMenuInner>
       {/* <hr /> */}
       {/* <EditCategoryBox>

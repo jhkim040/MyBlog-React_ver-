@@ -1,17 +1,52 @@
 import { Post } from "../post/post";
 import styled from "styled-components";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const PublishArticle = () => {
-  console.log(Post);
+const PublishArticle = (props) => {
+  // 수정될 게시글
+  const board = props.board;
 
+  // 카테고리 리스트 --> 변경할 카테고리 선택
+  const [categoryList, setCategoryList] = useState([]);
+  const navigate = useNavigate();
+  // 게시글 수정
+  const boardModfiy = () => {
+    console.log(board);
+    axios.post(`/board/modify`, board);
+    navigate(`/mogmain`);
+  };
+
+  useEffect(() => {
+    // 카테고리 리스트 조회 (전체 불러오기)
+    axios
+      .get("/category/list")
+      .then((res) => {
+        setCategoryList(res.data);
+        // console.log(res);
+      })
+      .catch((err) => err.toJSON());
+  }, []);
+
+  // 카테고리 변경
+  const onInputChange = (e) => {
+    // console.log(board);
+    props.setBoard({ ...board, [e.target.name]: e.target.value });
+  };
   return (
     <>
       <MenuTitle>
         <h3>카테고리</h3>
-        <select>
-          {Post.map((postList, index) => (
+        <select
+          name="category"
+          onChange={(e) => {
+            onInputChange(e);
+          }}
+        >
+          {categoryList.map((category) => (
             <>
-              <option>{postList.category}</option>
+              <option>{category.name}</option>
             </>
           ))}
         </select>
@@ -28,7 +63,7 @@ const PublishArticle = () => {
         <textarea name="editTag" cols="40" rows="5" />
       </MenuTitle>
       <hr />
-      <SubmitButton>SUBMIT</SubmitButton>
+      <SubmitButton onClick={boardModfiy}>SUBMIT</SubmitButton>
     </>
   );
 };
