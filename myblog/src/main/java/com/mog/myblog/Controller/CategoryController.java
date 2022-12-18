@@ -4,9 +4,7 @@ import com.mog.myblog.Entitiy.Board;
 import com.mog.myblog.Entitiy.Category;
 import com.mog.myblog.Service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,10 @@ public class CategoryController {
     @GetMapping("/category/list")
     public List<Category> categoryList() {
         return categoryService.categoryList();
+    }
+
+    @PostMapping("/category/insert")
+    public void categoryInsert(@RequestBody Category category) {
+        categoryService.write(category);
     }
 }

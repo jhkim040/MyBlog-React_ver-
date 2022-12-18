@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
 const SingleArticle = (props) => {
-  console.log(props);
+  // props : 카테고리 명, 전체 게시글 리스트
+  // console.log(props);
 
+  // 전달받은 카테고리에 해당하는 게시글만 filter
   const filteredList = props.boardList.filter(
     (board) => board.category === props.category
   );
 
   return (
     <>
-      {filteredList.map((board) => (
-        <>
-          <SingleArticleInner key={board.id}>
-            <a href="#">{board.title}</a>
-          </SingleArticleInner>
-        </>
-      ))}
+      {filteredList.length > 0 &&
+        filteredList.map((board) => (
+          <>
+            <SingleArticleInner key={board.id}>
+              <a href="#">{board.title}</a>
+            </SingleArticleInner>
+          </>
+        ))}
     </>
   );
 };

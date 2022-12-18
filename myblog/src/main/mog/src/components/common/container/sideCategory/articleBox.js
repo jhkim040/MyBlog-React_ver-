@@ -1,43 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SingleArticle from "./singleArticle";
 
-const ArticleBox = () => {
-  const [boardList, setBoardList] = useState([]);
-  const [categoryList, setCategoryList] = useState([]);
+const ArticleBox = (props) => {
+  // props : 카테고리 리스트, 게시글 리스트
+  // console.log(props);
+  // const newCategoryName = props.category.name;
+  const boardList = props.boardList;
+  const categoryList = props.categoryList;
 
-  useEffect(() => {
-    axios
-      .get("/board/list")
-      .then((res) => {
-        setBoardList(res.data);
-        // console.log(res);
-      })
-      .catch((err) => err.toJSON());
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get("/category/list")
-      .then((res) => {
-        setCategoryList(res.data);
-        // console.log(res);
-      })
-      .catch((err) => err.toJSON());
-  }, []);
   return (
     <>
-      {categoryList.map((category) => (
-        <>
-          <CategoryTitle key={category.id}>
-            <a href="#">{category.name}</a>
-          </CategoryTitle>
-          <ul>
-            <SingleArticle category={category.name} boardList={boardList} />
-          </ul>
-        </>
-      ))}
+      {categoryList.length > 0 ? (
+        categoryList.map((category) => (
+          <>
+            <CategoryTitle>
+              <a href="#">{category.name}</a>
+            </CategoryTitle>
+            <ul>
+              {/* 카테고리명, 게시글 리스트 props 전달 */}
+              <SingleArticle category={category.name} boardList={boardList} />
+            </ul>
+          </>
+        ))
+      ) : (
+        <CategoryTitle>게시글이 없습니다.</CategoryTitle>
+      )}
     </>
   );
 };
