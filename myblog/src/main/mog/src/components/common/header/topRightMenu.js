@@ -3,11 +3,14 @@ import SearchBox from "./searchBox";
 import UserProfile from "./userProfile";
 import styled from "styled-components";
 
-const TopRightMenu = () => {
+const TopRightMenu = (props) => {
   return (
     <>
       <TopRightMenuWrap>
-        <SearchBox />
+        <SearchBox
+          searchKeyword={props.searchKeyword}
+          setSearchKeyword={props.setSearchKeyword}
+        />
         <NewArticle />
         <UserProfile />
       </TopRightMenuWrap>

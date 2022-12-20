@@ -19,9 +19,15 @@ public class BoardController {
     }
 
     @GetMapping("/board/list")
-    public List<Board> boardList() {
-        System.out.println("boardList 연결");
-        return boardService.boardList();
+    public List<Board> boardList(String searchKeyword) {
+        System.out.println(searchKeyword);
+        List<Board> list = null;
+        if(searchKeyword == null) {
+            list = boardService.boardList();
+        } else {
+            list = boardService.boardSearchList(searchKeyword);
+        }
+        return list;
     }
     @PostMapping("/board/insert")
     public void boardInsert(@RequestBody Board board) {

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import Content from "./content";
 
-const Container = () => {
+const Container = (props) => {
+  // props.searchKeyword : 제목(키워드) 검색
   return (
     <>
       <ContainerWrap>
-        <Content />
+        <Content searchKeyword={props.searchKeyword} />
       </ContainerWrap>
     </>
   );

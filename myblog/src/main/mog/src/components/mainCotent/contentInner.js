@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import BlogContent from "./blogContent";
 
-const ContentInner = () => {
+const ContentInner = (props) => {
+  // props.searchKeyword : 제목(키워드) 검색
   return (
     <ContentWrap>
-      <BlogContent />
+      <BlogContent searchKeyword={props.searchKeyword} />
     </ContentWrap>
   );
 };

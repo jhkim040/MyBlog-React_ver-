@@ -27,4 +27,8 @@ public class BoardService {
     public void boardDelete(Integer id) {
         boardRepository.deleteById(id);
     }
+
+    public List<Board> boardSearchList(String searchKeyword) {
+        return boardRepository.findByTitleContaining(searchKeyword);
+    }
 }

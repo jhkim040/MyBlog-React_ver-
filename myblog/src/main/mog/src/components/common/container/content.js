@@ -2,12 +2,13 @@ import styled from "styled-components";
 import MainContent from "../../mainCotent/mainContent";
 import SideCategory from "./sideCategory/sideCategory";
 
-const Content = () => {
+const Content = (props) => {
+  // props.searchKeyword : 제목(키워드) 검색
   return (
     <>
       <ContentWrap>
         <SideCategory />
-        <MainContent />
+        <MainContent searchKeyword={props.searchKeyword} />
       </ContentWrap>
     </>
   );

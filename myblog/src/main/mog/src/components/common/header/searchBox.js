@@ -1,12 +1,30 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import SearchIcon from "../../../images/headerImages/search_icon.png";
 
-const SearchBox = () => {
+const SearchBox = (props) => {
+  const titleRef = useRef(); // title input
+  // 입력시 자동 검색 ------------------------
+  // const onInputChange = (e) => {
+  //   props.setSearchKeyword(e.target.value);
+  // };
+  // 검색 아이콘 클릭 시 검색 -------------------
+  const onClickSearch = () => {
+    props.setSearchKeyword(titleRef.current.value);
+  };
   return (
     <>
       <SearchBoxWrap>
-        <input type="text" autoComplete="off"></input>
-        <SearchBtn />
+        <input
+          type="text"
+          name="searchKeyword"
+          autoComplete="off"
+          ref={titleRef}
+          // onChange={(e) => {
+          //   onInputChange(e);
+          // }}
+        ></input>
+        <SearchBtn type="button" onClick={onClickSearch} />
       </SearchBoxWrap>
     </>
   );

@@ -2,12 +2,15 @@ import TopLeftMenu from "./topLeftMenu";
 import TopRightMenu from "./topRightMenu";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <HeaderWrap>
         <TopLeftMenu />
-        <TopRightMenu />
+        <TopRightMenu
+          searchKeyword={props.searchKeyword}
+          setSearchKeyword={props.setSearchKeyword}
+        />
       </HeaderWrap>
     </>
   );

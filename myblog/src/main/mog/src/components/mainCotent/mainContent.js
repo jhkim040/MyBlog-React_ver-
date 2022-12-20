@@ -2,11 +2,12 @@ import styled from "styled-components";
 import ContentInner from "./contentInner";
 import MainUserProfile from "./mainUserProfile";
 
-const MainContent = () => {
+const MainContent = (props) => {
+  // props.searchKeyword : 제목(키워드) 검색
   return (
     <MainContentWrap>
       <MainUserProfile />
-      <ContentInner />
+      <ContentInner searchKeyword={props.searchKeyword} />
     </MainContentWrap>
   );
 };
