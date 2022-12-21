@@ -6,10 +6,10 @@ Personal Blog made by React & Spring Boot
 Name : Mog
 
 Pages
-  Login page
-  Signup page
-  Main page
-  Write-Post page
-  (Bulletin)Board page
-  Single Post page
+Login page
+Signup page
+Main page
+Write-Post page
+(Bulletin)Board page
+Single Post page
   
